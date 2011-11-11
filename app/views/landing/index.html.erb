@@ -1,10 +1,14 @@
-<h1>Top Downloads</h1>
+<% if @subtitles.empty? %>
+  No subtitles yet. Would you like to upload one now?
+<% else %>
+  <h1>Top Downloads</h1>
 
-<ul>
-  <% @subtitles.each do |subtitle| %>
-    <li>
-    <%= subtitle.episode.show.title %> 
-    Season <%= subtitle.episode.season %> Episode <%= subtitle.episode.number %>
-    </li>
-  <% end %>
-</ul>
+  <ul>
+    <% @subtitles.each do |subtitle| %>
+      <li>
+      <%= subtitle.episode.show.title %> 
+      Season <%= subtitle.episode.season %> Episode <%= subtitle.episode.number %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

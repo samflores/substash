@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 feature 'Landing page' do
+  scenario 'no subtitles' do
+    visit '/'
+    page.should have_content('No subtitles yet. Would you like to upload one now?')
+  end
 
   scenario 'not logged in' do
     data = [
