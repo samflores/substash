@@ -1,17 +1,22 @@
 <% if @subtitles.empty? %>
   No subtitles yet. Would you like to upload one now?
 <% else %>
-  <% if user_signed_in? %>
-    <h1>Newest</h1>
-  <% else %>
-    <h1>Top Downloads</h1>
-  <% end %>
+  <div class="row">
+    <% if user_signed_in? %>
+      <h1>Newest</h1>
+    <% else %>
+      <h1>Top Downloads</h1>
+    <% end %>
+  </div>
 
-  <ul>
-    <% @subtitles.each do |subtitle| %>
-      <li>
-      <%= link_to "#{subtitle.episode.show.title} Season #{subtitle.episode.season} Episode #{subtitle.episode.number}", subtitle %>
-      </li>
+  <ul class="featured subtitles row">
+    <%= render :partial => 'subtitle', :object => @subtitles.first, :locals => {:featured => true, :last => false} %>
+    <% (0..2).each do |r| %>
+      <div class="subtitles row">
+        <% (1..3).each do |i| %>
+          <%= render :partial => 'subtitle', :object => @subtitles[i+(3*r)], :locals => {:featured => false, :last => i == 3} %>
+        <% end %>
+      </div>
     <% end %>
   </ul>
 <% end %>

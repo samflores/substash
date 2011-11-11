@@ -1,15 +1,52 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Substash</title>
-    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "1140", "styles", "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
   </head>
   <body>
+    <header>
+    <h1 class='logo'>
+      <a href="#">
+        Substash.tv
+      </a>
+    </h1>
+    </header>
     <div class="container">
+      <div class='alert'><%= alert %></div>
+      <div class='notice'><%= notice %></div>
       <%= yield %>
     </div>
-    <%= link_to('Sign out', destroy_user_session_path, :method => :delete) if user_signed_in? %>
+    <footer>
+    <div class="row">
+      <div class="fourcol">
+      </div>
+      <div class="fourcol">
+      </div>
+      <div class="fourcol last">
+        <% if user_signed_in? %>
+          <%= link_to('Sign out', destroy_user_session_path, :method => :delete) if user_signed_in? %>
+        <% else %>
+          <%= form_for("user", :url => user_session_path, :html => {:class => 'login'}) do |f| %>
+            <p>
+            <%= f.label :email, 'E-mail' %>
+            <%= f.email_field :email, :placeholder => 'E-mail' %>
+            </p>
+            <p>
+            <%= f.label :password %>
+            <%= f.password_field :password, :placeholder => 'Password' %>
+            </p>
+            <p>
+            <%= f.submit 'Sign in' %>
+            </p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    </footer>
   </body>
 </html>

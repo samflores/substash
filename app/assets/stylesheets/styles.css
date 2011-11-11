@@ -1,0 +1,129 @@
+/* ============================== */
+/* ! Layout for desktop version   */
+/* ============================== */
+body {
+  background: url('/assets/body-bg.png') repeat;
+}
+
+body > header {
+  height: 75px;
+  /* margin-bottom: 75px; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: url('/assets/header-bg.png') repeat-x;
+  text-align: center;
+}
+
+h1.logo {
+}
+
+h1.logo a {
+  text-indent: -9999px;
+  height: 100px;
+  width: 250px;
+  background: url('/assets/logo.png') no-repeat;
+  display: inline-block;
+}
+
+.container {
+  margin-top: 100px;
+}
+
+body > footer {
+  height: 330px;
+  background: url('/assets/footer-bg.png') repeat-x;
+}
+
+form.login {
+  margin-top: 80px;
+}
+
+form.login label {
+  display: none;
+}
+
+form.login input[type=email], form.login input[type=password] {
+  border: none;
+  background: rgba(0,0,0,0.6);
+  line-height: 36px;
+  color: white;
+  font-size: 16px;
+  width: 100%
+}
+
+form.login input[type=submit] {
+  width: 89px;
+  height: 37px;
+  display: inline-block;
+  border: none;
+  background: url('/assets/login-bg.png') no-repeat;
+}
+
+li.subtitle, .subtitle-details > footer {
+  list-style-type: none;
+  padding: 0;
+  background-color: black;
+  height: 249px;
+  margin-bottom: 20px;
+  position: relative;
+  color: white;
+
+  -webkit-box-shadow: 1px 0 4px rgba(0,0,0,0.75), inset 0 0 1px rgba(255,255,255,0.8);
+}
+
+li.featured.subtitle {
+  height: 434px;
+}
+
+li.subtitle article footer {
+  background-color: rgba(0,0,0,0.6);
+  -webkit-box-shadow: inset 0 0 1px rgba(255,255,255,0.8);
+  height: 89px;
+  position: absolute;
+  padding-right: 10px;
+  line-height: 44.5px;
+  text-align: right;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.container h1 {
+  color: white;
+  text-align: right;
+}
+
+article.subtitle-details footer {
+  
+}
+
+
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+@media handheld, only screen and (max-width: 767px) {
+
+  body {
+
+  }
+
+}
+
+
+/* ========================================== */
+/* ! Provide higher res assets for iPhone 4   */
+/* ========================================== */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+
+  /*	.logo {
+  background: url(logo2x.jpg) no-repeat;
+  background-size: 212px 303px;
+  }*/
+
+}

@@ -1,0 +1,7 @@
+<li class="<%= featured ? 'twelvecol featured' : 'fourcol' %> <%= 'last' if last %> subtitle">
+<article>
+<footer>
+<%= link_to "#{subtitle.episode.show.title} Season #{subtitle.episode.season} Episode #{subtitle.episode.number}", subtitle %>
+</footer>
+</article>
+</li>
