@@ -17,4 +17,5 @@ gem 'jquery-rails'
 group :test do
   gem 'rspec-rails'
   gem 'capybara', :require => ['capybara', 'capybara/rspec']
+  gem 'capybara-webkit'
 end

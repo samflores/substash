@@ -35,4 +35,41 @@ describe SubtitlesController do
     end
   end
 
+  describe "GET 'new'" do
+    it "should create a new subtitle" do
+      subtitle = double
+      Subtitle.should_receive(:new).and_return(subtitle)
+      get :new
+      assigns(:subtitle).should == subtitle
+    end
+  end
+
+  describe "POST 'create'" do
+    before do
+      @subtitle = mock_model(Subtitle)
+      Subtitle.stub(:new).and_return(@subtitle)
+      @subtitle.stub(:save).and_return(true)
+    end
+    it "should create a new subtitle with the param received" do
+      Subtitle.should_receive(:new).with('episode_id' => '1', 'file' => 'x')
+      post :create, :subtitle => { :episode_id => 1, :file => 'x' }
+    end
+
+    context "with valid params" do
+      it "should redirect to subtitle details" do
+        @subtitle.should_receive(:save).and_return(true)
+        response.should redirect_to(@subtitle)
+        post :create, :subtitle => { :episode_id => 1, :file => 'x' }
+      end
+    end
+
+    context "with invalid params" do
+      it "should render the form again" do
+        @subtitle.should_receive(:save).and_return(false)
+        response.should render_template('new')
+        post :create, :subtitle => { :episode_id => 1, :file => 'x' }
+      end
+    end
+  end
+
 end

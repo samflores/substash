@@ -2,8 +2,8 @@ class CreateEpisodes < ActiveRecord::Migration
   def change
     create_table :episodes do |t|
       t.references :show
-      t.integer :number
-      t.integer :season
+      t.integer :number, :null => false
+      t.integer :season, :null => false
 
       t.timestamps
     end

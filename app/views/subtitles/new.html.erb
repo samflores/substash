@@ -1,0 +1,16 @@
+<%= form_for(@subtitle) do |f| %>
+  <%= fields_for(:show) do |s| %>
+    <%= s.label :title, 'Show' %>
+    <%= s.text_field :title %>
+    <%= s.hidden_field :id %>
+  <% end %>
+  <%= fields_for(:episode) do |e| %>
+    <%= e.label :label, 'Episode' %>
+    <%= e.text_field :label %>
+  <% end %>
+  <%= f.hidden_field :episode_id %>
+  <%= f.label :file %>
+  <%= f.file_field :file %>
+  <%= f.submit 'Save' %>
+<% end %>
+

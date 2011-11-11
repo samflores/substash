@@ -12,4 +12,17 @@ class SubtitlesController < ApplicationController
         :type => "application/zip", :x_sendfile => true
     end
   end
+
+  def new
+    @subtitle = Subtitle.new
+  end
+
+  def create
+    @subtitle = Subtitle.new(params[:subtitle])
+    if @subtitle.save
+      redirect_to @subtitle
+    else
+      render :new
+    end
+  end
 end

@@ -29,7 +29,8 @@
       </div>
       <div class="fourcol last">
         <% if user_signed_in? %>
-          <%= link_to('Sign out', destroy_user_session_path, :method => :delete) if user_signed_in? %>
+          <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+          <%= link_to 'Upload subtitle', new_subtitle_path %>
         <% else %>
           <%= form_for("user", :url => user_session_path, :html => {:class => 'login'}) do |f| %>
             <p>
