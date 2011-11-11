@@ -1,0 +1,10 @@
+<h1>Top Downloads</h1>
+
+<ul>
+  <% @subtitles.each do |subtitle| %>
+    <li>
+    <%= subtitle.episode.show.title %> 
+    Season <%= subtitle.episode.season %> Episode <%= subtitle.episode.number %>
+    </li>
+  <% end %>
+</ul>
