@@ -46,10 +46,10 @@ describe SubtitlesController do
 
   describe "POST 'create'" do
     before do
-      @subtitle = mock_model(Subtitle)
+      @subtitle = mock_model(Subtitle, :save => true)
       Subtitle.stub(:new).and_return(@subtitle)
-      @subtitle.stub(:save).and_return(true)
     end
+
     it "should create a new subtitle with the param received" do
       Subtitle.should_receive(:new).with('episode_id' => '1', 'file' => 'x')
       post :create, :subtitle => { :episode_id => 1, :file => 'x' }
@@ -58,16 +58,16 @@ describe SubtitlesController do
     context "with valid params" do
       it "should redirect to subtitle details" do
         @subtitle.should_receive(:save).and_return(true)
-        response.should redirect_to(@subtitle)
         post :create, :subtitle => { :episode_id => 1, :file => 'x' }
+        response.should redirect_to(@subtitle)
       end
     end
 
     context "with invalid params" do
       it "should render the form again" do
         @subtitle.should_receive(:save).and_return(false)
-        response.should render_template('new')
         post :create, :subtitle => { :episode_id => 1, :file => 'x' }
+        response.should render_template('new')
       end
     end
   end
