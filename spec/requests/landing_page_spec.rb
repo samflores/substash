@@ -8,7 +8,7 @@ feature 'Landing page' do
 
   context do
 
-    before do
+    background do
       @data = [
         {:show => "Dexter"              , :season => 6  , :episode => 6  , :downloads => 13 , :date => 2.days.ago}  ,
         {:show => "Fringe"              , :season => 4  , :episode => 4  , :downloads => 12 , :date => 1.days.ago}  ,

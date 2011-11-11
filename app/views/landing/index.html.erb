@@ -10,8 +10,7 @@
   <ul>
     <% @subtitles.each do |subtitle| %>
       <li>
-      <%= subtitle.episode.show.title %> 
-      Season <%= subtitle.episode.season %> Episode <%= subtitle.episode.number %>
+      <%= link_to "#{subtitle.episode.show.title} Season #{subtitle.episode.season} Episode #{subtitle.episode.number}", subtitle %>
       </li>
     <% end %>
   </ul>
