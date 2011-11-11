@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(:version => 20111111181854) do
 
   create_table "episodes", :force => true do |t|
     t.integer  "show_id"
-    t.integer  "number"
-    t.integer  "season"
+    t.integer  "number",     :null => false
+    t.integer  "season",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(:version => 20111111181854) do
   add_index "episodes", ["show_id"], :name => "index_episodes_on_show_id"
 
   create_table "shows", :force => true do |t|
-    t.string   "title"
+    t.string   "title",      :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "subtitles", :force => true do |t|
     t.integer  "episode_id"
-    t.integer  "downloads"
+    t.integer  "downloads",  :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "file"
