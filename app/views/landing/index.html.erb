@@ -1,7 +1,11 @@
 <% if @subtitles.empty? %>
   No subtitles yet. Would you like to upload one now?
 <% else %>
-  <h1>Top Downloads</h1>
+  <% if user_signed_in? %>
+    <h1>Newest</h1>
+  <% else %>
+    <h1>Top Downloads</h1>
+  <% end %>
 
   <ul>
     <% @subtitles.each do |subtitle| %>
