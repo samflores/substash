@@ -1,7 +1,7 @@
 Substash::Application.routes.draw do
-  get "subtitles/show"
-
   devise_for :users
+
+  match "subtitles/:id.zip" => 'subtitles#download', :as => 'subtitle_download'
   resources :subtitles
 
   get "landing/index"

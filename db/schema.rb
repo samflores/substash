@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111111160831) do
+ActiveRecord::Schema.define(:version => 20111111181854) do
 
   create_table "episodes", :force => true do |t|
     t.integer  "show_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20111111160831) do
     t.integer  "downloads"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "file"
   end
 
   add_index "subtitles", ["episode_id"], :name => "index_subtitles_on_episode_id"
