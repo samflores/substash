@@ -14,7 +14,7 @@
     <% (0..2).each do |r| %>
       <div class="subtitles row">
         <% (1..3).each do |i| %>
-          <%= render :partial => 'subtitle', :object => @subtitles[i+(3*r)], :locals => {:featured => false, :last => i == 3} %>
+          <%= render(:partial => 'subtitle', :object => @subtitles[i+(3*r)], :locals => {:featured => false, :last => i == 3}) if @subtitles[i+3*r] %>
         <% end %>
       </div>
     <% end %>
