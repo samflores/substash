@@ -97,8 +97,8 @@ li.subtitle article footer {
   text-align: right;
 }
 
-article.subtitle-details footer {
-  
+article.subtitle-details {
+  min-height: 400px;
 }
 
 
